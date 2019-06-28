@@ -37,12 +37,11 @@ public class CrimesController {
     @FXML
     void doCreaGrafo(ActionEvent event) {
     	String categoria = boxCategoria.getValue();
-    	if(categoria == null) {
-    		txtResult.appendText("Si deve selezionare una categoria\n");
-    	}
+    	
     	Integer mese = boxMese.getValue();
-    	if(mese == null) {
-    		txtResult.appendText("Si deve selezionare un mese\n");
+    	if(categoria == null || mese == null) {
+    		txtResult.appendText("Si devono selezionare un mese e una categoria\n");
+    		return;
     	}
     	
     	List<ArcoPeso> result = this.model.creaGrafo(categoria, mese);
